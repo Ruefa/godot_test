@@ -1,5 +1,6 @@
-extends Area2D
+extends KinematicBody2D
 
+const GRAVITY = 200
 var SPEED_X = 200
 var SCREEN_SIZE
 var SPRITE_SIZE
@@ -13,18 +14,14 @@ var velocity
 func _ready():
 	velocity = Vector2()
 	SCREEN_SIZE = get_viewport_rect().size
-	SPRITE_SIZE = $CollisionShape2D.shape.extents
+	SPRITE_SIZE = $CollisionShape2D.shape.extents*.5
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	velocity.y += gravity
-	if velocity.y > 200:
-		velocity.y = 200
+	# gravity
+	velocity.y += delta*GRAVITY
 	
-	if Input.is_action_pressed("ui_up") && velocity.y >= 0:
-		velocity.y = -500
-		gravity = true
-		
+	# left - right movement
 	if Input.is_action_pressed("ui_right"):
 		velocity.x = SPEED_X
 	elif Input.is_action_pressed("ui_left"):
@@ -32,10 +29,4 @@ func _process(delta):
 	else:
 		velocity.x = 0
 	
-	position += velocity * delta
-	position.y = clamp(position.y, 0 + SPRITE_SIZE.y, SCREEN_SIZE.y - SPRITE_SIZE.y)
-
-
-func _on_Ground_area_entered(area):
-	velocity.y = 0
-	gravity = false
+	move_and_slide(velocity, Vector2(0,-1))
