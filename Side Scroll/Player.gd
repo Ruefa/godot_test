@@ -15,7 +15,6 @@ var PLAYER_DIR = RIGHT
 # var a = 2
 # var b = "text"
 var velocity
-var grounded = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,7 +34,6 @@ func _process(delta):
 		# if touching the ground turn off gravity
 		if collision.get_normal().y < 0:
 			velocity.y = 0
-			grounded = true
 
 	# left - right movement
 	if Input.is_action_pressed("ui_right"):
@@ -50,14 +48,13 @@ func _process(delta):
 	if Input.is_action_pressed("ui_shoot") and $FireRateTimer.is_stopped():
 		playerShoot()
 		
-	if Input.is_action_pressed("ui_up") and grounded:
+	if Input.is_action_pressed("ui_up") and is_on_floor():
 		velocity.y = -400
-		grounded = false
-		
 
 	
 	move_and_slide(velocity, Vector2(0,-1))
 	
+
 func playerShoot():
 	$FireRateTimer.start()
 	
