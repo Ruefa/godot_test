@@ -32,12 +32,12 @@ func _process(delta):
 		velocity.y = 0
 	
 	# handle collisions
-	for i in get_slide_count():
-		var collision = get_slide_collision(i)
-		#print(collision.get_normal().y)
-		# if touching the ground turn off gravity
-		if collision.get_normal().y < 0:
-			velocity.y = 0
+#	for i in get_slide_count():
+#		var collision = get_slide_collision(i)
+#		#print(collision.get_normal().y)
+#		# if touching the ground turn off gravity
+#		if collision.get_normal().y < 0:
+#			velocity.y = 0
 
 	# left - right movement
 	if Input.is_action_pressed("ui_right"):
