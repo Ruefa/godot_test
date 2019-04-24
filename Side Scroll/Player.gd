@@ -25,7 +25,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# gravity
-	velocity.y += delta*GRAVITY
+	if !is_on_floor():
+		velocity.y += delta*GRAVITY
 	
 	# handle collisions
 	for i in get_slide_count():
