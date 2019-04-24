@@ -1,9 +1,15 @@
 extends KinematicBody2D
 
+var Bullet = load("res://Bullet.tscn")
+
 const GRAVITY = 500
+const RIGHT = 'right'
+const LEFT = 'left'
+
 var SPEED_X = 200
 var SCREEN_SIZE
 var SPRITE_SIZE
+var PLAYER_DIR = RIGHT
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -25,7 +31,8 @@ func _process(delta):
 	# handle collisions
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
-		print(collision.get_normal().y)
+		#print(collision.get_normal().y)
+		# if touching the ground turn off gravity
 		if collision.get_normal().y < 0:
 			velocity.y = 0
 			grounded = true
@@ -33,10 +40,15 @@ func _process(delta):
 	# left - right movement
 	if Input.is_action_pressed("ui_right"):
 		velocity.x = SPEED_X
+		PLAYER_DIR = RIGHT
 	elif Input.is_action_pressed("ui_left"):
 		velocity.x = -SPEED_X
+		PLAYER_DIR = LEFT
 	else:
 		velocity.x = 0
+		
+	if Input.is_action_pressed("ui_shoot") and $FireRateTimer.is_stopped():
+		playerShoot()
 		
 	if Input.is_action_pressed("ui_up") and grounded:
 		velocity.y = -400
@@ -45,3 +57,14 @@ func _process(delta):
 
 	
 	move_and_slide(velocity, Vector2(0,-1))
+	
+func playerShoot():
+	$FireRateTimer.start()
+	
+	var bullet = Bullet.instance()
+	add_child(bullet)
+	
+#	if PLAYER_DIR == RIGHT:
+#		bullet.set_linear_velocity(Vector2(500,0))
+#	else:
+#		bullet.set_linear_velocity(Vector2(-500,0))
