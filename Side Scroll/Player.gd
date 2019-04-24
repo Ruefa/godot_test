@@ -63,9 +63,8 @@ func playerShoot():
 	$FireRateTimer.start()
 	
 	var bullet = Bullet.instance()
-	add_child(bullet)
-	
-#	if PLAYER_DIR == RIGHT:
-#		bullet.set_linear_velocity(Vector2(500,0))
-#	else:
-#		bullet.set_linear_velocity(Vector2(-500,0))
+	get_parent().add_child(bullet)
+	add_collision_exception_with(bullet)
+	bullet.position = position
+	bullet.position.x += SPRITE_SIZE.x*3
+
