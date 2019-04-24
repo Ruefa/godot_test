@@ -6,7 +6,7 @@
 [node name="Main" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 80, 210 )
+position = Vector2( 110, 520 )
 z_index = 1
 
 [node name="Map1" parent="." instance=ExtResource( 2 )]
