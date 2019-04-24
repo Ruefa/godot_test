@@ -27,6 +27,9 @@ func _process(delta):
 	# gravity
 	if !is_on_floor():
 		velocity.y += delta*GRAVITY
+		
+	if is_on_ceiling() and velocity.y < 0:
+		velocity.y = 0
 	
 	# handle collisions
 	for i in get_slide_count():
