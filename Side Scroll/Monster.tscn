@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Monster.gd" type="Script" id=1]
+[ext_resource path="res://art/playerGrey_walk1.png" type="Texture" id=2]
+[ext_resource path="res://art/playerGrey_walk2.png" type="Texture" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Monster" type="KinematicBody2D"]
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+build_mode = 1
+polygon = PoolVector2Array( -0.217621, -66.717, 24.9293, -61.9271, 44.0889, -47.5574, 53.0699, -25.4042, 55.4649, -15.2256, 51.2737, 6.32887, 38.1015, 26.0872, 18.3432, 38.0619, 18.942, 61.4127, 12.3558, 67.4001, -16.9823, 67.4001, -21.7722, 62.6101, -20.5747, 36.8645, -39.7343, 24.8897, -49.3141, 11.7175, -54.104, -8.0408, -52.3078, -26.6017, -41.5305, -48.1562, -21.1734, -64.3221 )
+
