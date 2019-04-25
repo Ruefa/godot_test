@@ -16,7 +16,6 @@ func _process(delta):
 	var enemyNodes = get_tree().get_nodes_in_group("Enemy")
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
-		print(collision.get_collider().name)
 		if collision.get_collider() in enemyNodes:
 			collision.get_collider().hit(DAMAGE)
 			queue_free()
