@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
 var Bullet = load("res://Bullet.tscn")
+var consts = load("res://Constants.gd")
 
-const GRAVITY = 500
 const RIGHT = 'right'
 const LEFT = 'left'
 
@@ -24,7 +24,7 @@ func _ready():
 func _process(delta):
 	# gravity
 	if !is_on_floor():
-		velocity.y += delta*GRAVITY
+		velocity.y += delta*consts.GRAVITY
 	else:
 		velocity.y = 0
 		
