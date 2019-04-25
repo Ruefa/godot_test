@@ -1,0 +1,1 @@
+const GRAVITY = 500

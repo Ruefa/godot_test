@@ -25,6 +25,8 @@ func _process(delta):
 	# gravity
 	if !is_on_floor():
 		velocity.y += delta*GRAVITY
+	else:
+		velocity.y = 0
 		
 	if is_on_ceiling() and velocity.y < 0:
 		velocity.y = 0
