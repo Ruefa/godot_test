@@ -24,10 +24,11 @@ scale = Vector2( 1.13889, 3 )
 curve = SubResource( 1 )
 
 [node name="MonsterSpawnLocation" type="PathFollow2D" parent="MonsterPath"]
-position = Vector2( 120, 50 )
+position = Vector2( 93.6586, 50 )
+rotation = 9.72176e-007
 
 [node name="MobSpawnTimer" type="Timer" parent="."]
-one_shot = true
+wait_time = 5.0
 autostart = true
 
 [connection signal="timeout" from="MobSpawnTimer" to="." method="_on_MobSpawnTimer_timeout"]
