@@ -12,6 +12,8 @@ var health
 func _ready():
 	health = MAX_HP
 	$PauseTimer.start(randi()%3)
+	$HealthBar.max_value = MAX_HP
+	$HealthBar.value = health
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -44,6 +46,8 @@ func _on_MoveTimer_timeout():
 	
 func hit(damage):
 	health -= damage
+	$HealthBar.value = health
 	
 	if health <= 0:
 		queue_free()
+
