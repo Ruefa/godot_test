@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Menu.gd" type="Script" id=1]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://font/arialbd.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 28
+font_data = SubResource( 1 )
+
+[node name="Menu" type="Node2D"]
+pause_mode = 2
+z_index = 5
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 142.369
+margin_top = 82.3224
+margin_right = 860.369
+margin_bottom = 483.322
+color = Color( 0.305882, 0.168627, 0.0470588, 1 )
+
+[node name="Button" type="Button" parent="ColorRect"]
+margin_left = 295.949
+margin_top = 177.052
+margin_right = 432.949
+margin_bottom = 215.052
+custom_fonts/font = SubResource( 2 )
+text = "Press Me"
+
+[connection signal="pressed" from="ColorRect/Button" to="." method="_on_Button_pressed"]
