@@ -42,9 +42,11 @@ func _process(delta):
 	if Input.is_action_pressed("ui_right"):
 		velocity.x = SPEED_X
 		PLAYER_DIR = RIGHT
+		$AnimatedSprite.flip_h = false
 	elif Input.is_action_pressed("ui_left"):
 		velocity.x = -SPEED_X
 		PLAYER_DIR = LEFT
+		$AnimatedSprite.flip_h = true
 	else:
 		velocity.x = 0
 		
