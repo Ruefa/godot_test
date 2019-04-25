@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 const SPEED = 450
+var velocity = Vector2(SPEED, 0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,7 +9,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	move_and_slide(Vector2(SPEED,0), Vector2(0,-1))
+	move_and_slide(velocity, Vector2(0,-1))
 	
 	if get_slide_count() > 0:
 		queue_free()
