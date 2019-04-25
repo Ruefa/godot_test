@@ -1,19 +1,21 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://art/playerGrey_walk1.png" type="Texture" id=2]
-[ext_resource path="res://art/playerGrey_walk2.png" type="Texture" id=3]
+[ext_resource path="res://art/char.png" type="Texture" id=2]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 23.0743
+height = 19.2959
+
 [node name="Player" type="KinematicBody2D"]
-scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -23,7 +25,6 @@ frames = SubResource( 1 )
 wait_time = 0.5
 one_shot = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-build_mode = 1
-polygon = PoolVector2Array( 0.480759, -67.5162, 21.2668, -63.9013, 42.9566, -47.1821, 53.8014, -23.2329, 52.8977, 0.264313, 42.9566, 20.5985, 28.9486, 33.2508, 18.1037, 37.7695, 18.1037, 61.2668, 11.7775, 67.593, -15.3347, 68.4967, -20.3053, 63.0743, -20.7571, 37.3177, -33.8614, 30.5396, -42.8988, 20.5985, -47.8694, 11.1092, -53.7437, -4.25439, -52.8399, -24.5885, -45.61, -42.6634, -29.3427, -58.4788, -13.9791, -65.7087 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
 
