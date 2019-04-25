@@ -12,7 +12,9 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Monster" type="KinematicBody2D"]
+[node name="Monster" type="KinematicBody2D" groups=[
+"Enemy",
+]]
 scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 1 )
 
