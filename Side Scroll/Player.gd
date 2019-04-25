@@ -8,7 +8,6 @@ const LEFT = 'left'
 
 var SPEED_X = 200
 var SCREEN_SIZE
-var SPRITE_SIZE
 var PLAYER_DIR = RIGHT
 
 # Declare member variables here. Examples:
@@ -20,7 +19,6 @@ var velocity
 func _ready():
 	velocity = Vector2()
 	SCREEN_SIZE = get_viewport_rect().size
-	SPRITE_SIZE = $CollisionShape2D.shape.extents*.5
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
