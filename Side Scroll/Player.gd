@@ -66,5 +66,6 @@ func playerShoot():
 	get_parent().add_child(bullet)
 	add_collision_exception_with(bullet)
 	bullet.position = position
-	bullet.position.x += SPRITE_SIZE.x*3
+	if PLAYER_DIR == LEFT:
+		bullet.velocity.x *= -1
 
