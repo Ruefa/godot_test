@@ -23,3 +23,10 @@ frames = SubResource( 1 )
 build_mode = 1
 polygon = PoolVector2Array( -0.217621, -66.717, 24.9293, -61.9271, 44.0889, -47.5574, 53.0699, -25.4042, 55.4649, -15.2256, 51.2737, 6.32887, 38.1015, 26.0872, 18.3432, 38.0619, 18.942, 61.4127, 12.3558, 67.4001, -16.9823, 67.4001, -21.7722, 62.6101, -20.5747, 36.8645, -39.7343, 24.8897, -49.3141, 11.7175, -54.104, -8.0408, -52.3078, -26.6017, -41.5305, -48.1562, -21.1734, -64.3221 )
 
+[node name="MoveTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="PauseTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="MoveTimer" to="." method="_on_MoveTimer_timeout"]
