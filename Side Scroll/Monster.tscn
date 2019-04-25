@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Monster.gd" type="Script" id=1]
 [ext_resource path="res://art/playerGrey_walk1.png" type="Texture" id=2]
@@ -11,6 +11,12 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.0627451, 0.933333, 0.0352941, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.898039, 0.0666667, 0.0666667, 1 )
 
 [node name="Monster" type="KinematicBody2D" groups=[
 "Enemy",
@@ -30,5 +36,17 @@ one_shot = true
 
 [node name="PauseTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+margin_left = -46.8624
+margin_top = -105.0
+margin_right = 48.1376
+margin_bottom = -85.0
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+step = 1.0
+value = 100.0
+percent_visible = false
 
 [connection signal="timeout" from="MoveTimer" to="." method="_on_MoveTimer_timeout"]
