@@ -1,6 +1,8 @@
 extends KinematicBody2D
 
 const SPEED = 450
+const DAMAGE = 50
+
 var velocity = Vector2(SPEED, 0)
 
 # Called when the node enters the scene tree for the first time.
