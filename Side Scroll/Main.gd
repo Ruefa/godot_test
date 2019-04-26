@@ -4,7 +4,7 @@ var Monster = load("res://Monster.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$Menu.setPlayer($Player)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
