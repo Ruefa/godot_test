@@ -1,12 +1,15 @@
 extends Node
 
 var Monster = load("res://Monster.tscn")
+var curMap
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
 	
 	$Menu.setPlayer($Player)
+	
+	curMap = $Map1/FG
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
