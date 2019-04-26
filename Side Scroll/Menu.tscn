@@ -15,10 +15,10 @@ z_index = 5
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 142.369
-margin_top = 82.3224
-margin_right = 860.369
-margin_bottom = 483.322
+margin_left = -1.0824
+margin_top = -0.388184
+margin_right = 716.918
+margin_bottom = 400.612
 color = Color( 0.305882, 0.168627, 0.0470588, 1 )
 
 [node name="Button" type="Button" parent="ColorRect"]
