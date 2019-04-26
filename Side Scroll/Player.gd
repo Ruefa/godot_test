@@ -6,11 +6,14 @@ var consts = load("res://Constants.gd")
 const RIGHT = 'right'
 const LEFT = 'left'
 const BASE_ATT_SPEED = .5
+const BASE_DAMAGE = 50
 
 var SPEED_X = 200
 var SCREEN_SIZE
 var PLAYER_DIR = RIGHT
 var att_speed_mult = 1
+var damage_mult = 1
+var damage
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -65,10 +68,12 @@ func playerShoot():
 	get_parent().add_child(bullet)
 	add_collision_exception_with(bullet)
 	bullet.position = position
+	bullet.damage = damage
 	if PLAYER_DIR == LEFT:
 		bullet.velocity.x *= -1
 		
 # called when stats change to recalculate player ability
 func statChange():
 	$FireRateTimer.set_wait_time(BASE_ATT_SPEED * att_speed_mult)
+	damage = BASE_DAMAGE * damage_mult
 
