@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
 const SPEED = 450
-const DAMAGE = 50
 
+var damage
 var velocity = Vector2(SPEED, 0)
 
 # Called when the node enters the scene tree for the first time.
@@ -17,7 +17,7 @@ func _process(delta):
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if collision.get_collider() in enemyNodes:
-			collision.get_collider().hit(DAMAGE)
+			collision.get_collider().hit(damage)
 			queue_free()
 			break
 		else:
