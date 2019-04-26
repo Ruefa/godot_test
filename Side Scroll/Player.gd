@@ -35,12 +35,6 @@ func _process(delta):
 	if is_on_ceiling() and velocity.y < 0:
 		velocity.y = 0
 	
-	# handle collisions
-#	for i in get_slide_count():
-#		var collision = get_slide_collision(i)
-#		#print(collision.get_normal().y)
-#		if collision.get_normal().y < 0 and collision.get_normal().y > -1:
-#			velocity.y = SPEED_X * collision.get_normal().y
 
 	# left - right movement
 	if Input.is_action_pressed("ui_right"):
