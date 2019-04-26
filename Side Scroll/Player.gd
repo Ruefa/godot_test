@@ -5,10 +5,12 @@ var consts = load("res://Constants.gd")
 
 const RIGHT = 'right'
 const LEFT = 'left'
+const BASE_ATT_SPEED = .5
 
 var SPEED_X = 200
 var SCREEN_SIZE
 var PLAYER_DIR = RIGHT
+var att_speed_mult = 1
 
 # Declare member variables here. Examples:
 # var a = 2
