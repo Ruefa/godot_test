@@ -4,7 +4,7 @@
 
 [node name="Map1" type="Node2D"]
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="FG" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 50, 50 )
 collision_use_kinematic = true
