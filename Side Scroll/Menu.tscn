@@ -21,12 +21,21 @@ margin_right = 716.918
 margin_bottom = 400.612
 color = Color( 0.305882, 0.168627, 0.0470588, 1 )
 
-[node name="Button" type="Button" parent="ColorRect"]
-margin_left = 295.949
-margin_top = 177.052
-margin_right = 432.949
-margin_bottom = 215.052
+[node name="AttSpeed" type="Button" parent="ColorRect"]
+margin_left = 281.733
+margin_top = 118.896
+margin_right = 418.733
+margin_bottom = 156.896
 custom_fonts/font = SubResource( 2 )
-text = "Press Me"
+text = "Att Speed"
 
-[connection signal="pressed" from="ColorRect/Button" to="." method="_on_Button_pressed"]
+[node name="Damage" type="Button" parent="ColorRect"]
+margin_left = 281.733
+margin_top = 195.145
+margin_right = 424.733
+margin_bottom = 233.145
+custom_fonts/font = SubResource( 2 )
+text = "Damage"
+
+[connection signal="pressed" from="ColorRect/AttSpeed" to="." method="_on_AttSpeed_pressed"]
+[connection signal="pressed" from="ColorRect/Damage" to="." method="_on_Damage_pressed"]
