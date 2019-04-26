@@ -21,6 +21,7 @@ bg_color = Color( 0.898039, 0.0666667, 0.0666667, 1 )
 [node name="Monster" type="KinematicBody2D" groups=[
 "Enemy",
 ]]
+pause_mode = 1
 scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 1 )
 
