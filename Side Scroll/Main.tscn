@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Map1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Menu.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -32,5 +33,9 @@ rotation = 9.72176e-007
 pause_mode = 1
 wait_time = 5.0
 autostart = true
+
+[node name="Menu" parent="." instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 110, 80 )
 
 [connection signal="timeout" from="MobSpawnTimer" to="." method="_on_MobSpawnTimer_timeout"]
