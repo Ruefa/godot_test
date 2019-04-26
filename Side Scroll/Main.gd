@@ -25,3 +25,4 @@ func _on_MobSpawnTimer_timeout():
 	add_child(monster)
 	
 	monster.position = $MonsterPath/MonsterSpawnLocation.position
+	monster.z_index = 0
