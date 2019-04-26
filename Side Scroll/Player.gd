@@ -21,6 +21,8 @@ var velocity
 func _ready():
 	velocity = Vector2()
 	SCREEN_SIZE = get_viewport_rect().size
+	
+	statChange()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -71,4 +73,8 @@ func playerShoot():
 	bullet.position = position
 	if PLAYER_DIR == LEFT:
 		bullet.velocity.x *= -1
+		
+# called when stats change to recalculate player ability
+func statChange():
+	$FireRateTimer.set_wait_time(BASE_ATT_SPEED * att_speed_mult)
 
