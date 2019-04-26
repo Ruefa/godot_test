@@ -10,6 +10,8 @@ func _ready():
 	$Menu.setPlayer($Player)
 	
 	curMap = $Map1/FG
+	setCameraLimits()
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -30,4 +32,11 @@ func _on_MobSpawnTimer_timeout():
 	add_child(monster)
 	
 	monster.position = $MonsterPath/MonsterSpawnLocation.position
-	monster.z_index = 0
+	
+	
+func setCameraLimits():
+	$Player/Camera.limit_top = 0
+	$Player/Camera.limit_bottom = curMap.get_used_rect().size.y * curMap.cell_size.y
+	
+	$Player/Camera.limit_left = 0
+	$Player/Camera.limit_right = curMap.get_used_rect().size.x * curMap.cell_size.x
