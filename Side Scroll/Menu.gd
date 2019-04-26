@@ -8,10 +8,16 @@ func _ready():
 
 func _process(delta):
 	pass
-
-func _on_Button_pressed():
-	player.att_speed_mult -= .1
-	player.statChange()
 	
 func setPlayer(Player):
 	player = Player
+
+
+func _on_Damage_pressed():
+	player.damage_mult += .1
+	player.statChange()
+
+
+func _on_AttSpeed_pressed():
+	player.att_speed_mult -= .1
+	player.statChange()
