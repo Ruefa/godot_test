@@ -66,7 +66,6 @@ func playerShoot():
 	
 	var bullet = Bullet.instance()
 	get_parent().add_child(bullet)
-	add_collision_exception_with(bullet)
 	bullet.position = position
 	bullet.damage = damage
 	if PLAYER_DIR == LEFT:
