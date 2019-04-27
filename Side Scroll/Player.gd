@@ -56,6 +56,14 @@ func _process(delta):
 		
 	if Input.is_action_pressed("ui_up") and is_on_floor():
 		velocity.y = -400
+		
+	var enemyNodes = get_tree().get_nodes_in_group("Enemy")
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if collision.get_collider() in enemyNodes:
+			print(collision.get_collider())
+			set_collision_mask_bit(2,0)
+			$VulnTimer.start()
 
 	
 	move_and_slide(velocity, Vector2(0,-1))
@@ -76,3 +84,7 @@ func statChange():
 	$FireRateTimer.set_wait_time(BASE_ATT_SPEED * att_speed_mult)
 	damage = BASE_DAMAGE * damage_mult
 
+
+
+func _on_VulnTimer_timeout():
+	set_collision_mask_bit(2,1)
