@@ -2,11 +2,13 @@ extends KinematicBody2D
 
 const MOVE_SPEED = 200
 const MAX_HP = 100
+const BASE_DAMAGE = 50
 
 var consts = load("res://Constants.gd")
 var velocity = Vector2(0,0)
 var curDirection = 1
 var health
+var damage = BASE_DAMAGE
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -50,4 +52,3 @@ func hit(damage):
 	
 	if health <= 0:
 		queue_free()
-
