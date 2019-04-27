@@ -37,7 +37,6 @@ func _process(delta):
 		
 	if is_on_ceiling() and velocity.y < 0:
 		velocity.y = 0
-	
 
 	# left - right movement
 	if Input.is_action_pressed("ui_right"):
@@ -58,12 +57,11 @@ func _process(delta):
 		velocity.y = -400
 		
 	var enemyNodes = get_tree().get_nodes_in_group("Enemy")
-	for i in get_slide_count():
-		var collision = get_slide_collision(i)
-		if collision.get_collider() in enemyNodes:
-			print(collision.get_collider())
-			set_collision_mask_bit(2,0)
-			$VulnTimer.start()
+	if $VulnTimer.is_stopped():
+		for collider in $MonsterArea.get_overlapping_bodies():
+			if collider in enemyNodes:
+				print(collider.damage)
+				$VulnTimer.start()
 
 	
 	move_and_slide(velocity, Vector2(0,-1))
