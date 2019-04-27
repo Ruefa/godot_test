@@ -84,7 +84,3 @@ func statChange():
 	$FireRateTimer.set_wait_time(BASE_ATT_SPEED * att_speed_mult)
 	damage = BASE_DAMAGE * damage_mult
 
-
-
-func _on_VulnTimer_timeout():
-	set_collision_mask_bit(2,1)
