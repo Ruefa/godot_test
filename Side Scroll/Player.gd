@@ -43,12 +43,16 @@ func _process(delta):
 		velocity.x = SPEED_X
 		PLAYER_DIR = RIGHT
 		$AnimatedSprite.flip_h = false
+		$AnimatedSprite.play()
 	elif Input.is_action_pressed("ui_left"):
 		velocity.x = -SPEED_X
 		PLAYER_DIR = LEFT
 		$AnimatedSprite.flip_h = true
+		$AnimatedSprite.play()
 	else:
 		velocity.x = 0
+		$AnimatedSprite.stop()
+		$AnimatedSprite.set_frame(0)
 		
 	if Input.is_action_pressed("ui_shoot") and $FireRateTimer.is_stopped():
 		playerShoot()
