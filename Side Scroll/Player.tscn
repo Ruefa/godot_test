@@ -34,3 +34,8 @@ shape = SubResource( 2 )
 current = true
 limit_top = 0
 smoothing_enabled = true
+
+[node name="VulnTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="VulnTimer" to="." method="_on_VulnTimer_timeout"]
