@@ -83,6 +83,6 @@ func playerShoot():
 		
 # called when stats change to recalculate player ability
 func statChange():
-	$FireRateTimer.set_wait_time(BASE_ATT_SPEED * att_speed_mult)
+	$FireRateTimer.set_wait_time(BASE_ATT_SPEED * att_speed_mult + $Skills.att_speed_mult)
 	damage = BASE_DAMAGE * damage_mult
 
