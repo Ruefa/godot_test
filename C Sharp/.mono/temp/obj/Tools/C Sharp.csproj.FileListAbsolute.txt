@@ -1,0 +1,6 @@
+C:\src\godot_test\C Sharp\.mono\temp\obj\Tools\C Sharp.csprojAssemblyReference.cache
+C:\src\godot_test\C Sharp\.mono\temp\obj\Tools\C Sharp.csproj.CoreCompileInputs.cache
+C:\src\godot_test\C Sharp\.mono\temp\bin\Tools\C Sharp.dll
+C:\src\godot_test\C Sharp\.mono\temp\bin\Tools\C Sharp.pdb
+C:\src\godot_test\C Sharp\.mono\temp\obj\Tools\C Sharp.dll
+C:\src\godot_test\C Sharp\.mono\temp\obj\Tools\C Sharp.pdb
