@@ -5,6 +5,7 @@ var player
 
 func _ready():
 	hide()
+	createSkillTree()
 
 func _process(delta):
 	pass
@@ -25,3 +26,13 @@ func _on_AttSpeed_pressed():
 		player.statChange()
 	else:
 		print("no skill points")
+		
+func createSkillTree():
+	var treeFile = File.new()
+	treeFile.open("res://JSON/skill_tree.json", treeFile.READ)
+	
+	var treeDict = JSON.parse(treeFile.get_as_text()).result
+	treeFile.close()
+	
+	print(treeDict)
+	
