@@ -38,4 +38,5 @@ autostart = true
 [node name="Menu" parent="." instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 110, 80 )
+
 [connection signal="timeout" from="MobSpawnTimer" to="." method="_on_MobSpawnTimer_timeout"]
