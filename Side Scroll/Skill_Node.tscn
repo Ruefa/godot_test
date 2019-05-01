@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Skill_Node.gd" type="Script" id=2]
+
+[node name="Skill_Node" type="TextureButton"]
+pause_mode = 2
+texture_normal = ExtResource( 1 )
+script = ExtResource( 2 )
+
