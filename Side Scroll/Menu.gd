@@ -1,5 +1,7 @@
 extends Node2D
 
+var Skill_Node = load("res://Skill_Node.tscn")
+
 # reference to player object
 var player
 
@@ -34,5 +36,15 @@ func createSkillTree():
 	var treeDict = JSON.parse(treeFile.get_as_text()).result
 	treeFile.close()
 	
-	print(treeDict)
-	
+	for skill in treeDict:
+		var skillNode = Skill_Node.instance()
+		skillNode.type = skill["type"]
+		skillNode.value = float(skill["value"])
+		skillNode.connect("pressed", self, "_on_skillNode_pressed", [skillNode])
+		add_child(skillNode)
+
+
+func _on_skillNode_pressed(event):
+	print("pressed")
+	player.get_node("Skills").allocateSkill(event.type, event.value)
+	player.statChange()
