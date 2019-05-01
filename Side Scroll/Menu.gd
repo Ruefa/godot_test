@@ -7,8 +7,8 @@ func _ready():
 	hide()
 	createSkillTree()
 
-func _process(delta):
-	pass
+#func _process(delta):
+	#pass
 	
 func setPlayer(Player):
 	player = Player
