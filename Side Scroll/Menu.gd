@@ -14,6 +14,7 @@ func _ready():
 	
 func setPlayer(Player):
 	player = Player
+	$Skill_Points_Label.text = str(player.get_node("Skills").skillPoints)
 
 
 func _on_Damage_pressed():
