@@ -52,3 +52,6 @@ func hit(damage):
 	
 	if health <= 0:
 		queue_free()
+		return true
+	else:
+		return false
