@@ -51,8 +51,12 @@ func createSkillTree():
 
 func _on_skillNode_pressed(event):
 	print("pressed")
-	player.get_node("Skills").allocateSkill(event.type, event.value)
-	player.statChange()
+	if player.get_node("Skills").allocateSkill(event.type, event.value):
+		updateSkillLabel()
+		player.statChange()
+	else:
+		# show error for not enough SP
+		print("no SP")
 	
 func updateSkillLabel():
 	$Skill_Points_Label.text = str(player.get_node("Skills").skillPoints)
