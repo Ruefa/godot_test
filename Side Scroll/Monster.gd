@@ -3,6 +3,7 @@ extends KinematicBody2D
 const MOVE_SPEED = 200
 const MAX_HP = 100
 const BASE_DAMAGE = 50
+const BASE_EXP = 50
 
 var consts = load("res://Constants.gd")
 var velocity = Vector2(0,0)
