@@ -1,13 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
-
-[sub_resource type="DynamicFontData" id=1]
-font_path = "res://font/arialbd.ttf"
-
-[sub_resource type="DynamicFont" id=2]
-size = 28
-font_data = SubResource( 1 )
 
 [node name="Menu" type="Node2D"]
 pause_mode = 2
@@ -20,22 +13,6 @@ margin_top = -0.388184
 margin_right = 716.918
 margin_bottom = 400.612
 color = Color( 0.305882, 0.168627, 0.0470588, 1 )
-
-[node name="AttSpeed" type="Button" parent="ColorRect"]
-margin_left = 281.733
-margin_top = 118.896
-margin_right = 418.733
-margin_bottom = 156.896
-custom_fonts/font = SubResource( 2 )
-text = "Att Speed"
-
-[node name="Damage" type="Button" parent="ColorRect"]
-margin_left = 281.733
-margin_top = 195.145
-margin_right = 424.733
-margin_bottom = 233.145
-custom_fonts/font = SubResource( 2 )
-text = "Damage"
 
 [node name="Skill Points Text Label" type="Label" parent="."]
 margin_left = 280.651
