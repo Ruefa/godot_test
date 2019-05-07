@@ -28,5 +28,3 @@ margin_right = 401.0
 margin_bottom = 34.0
 text = "0"
 
-[connection signal="pressed" from="ColorRect/AttSpeed" to="." method="_on_AttSpeed_pressed"]
-[connection signal="pressed" from="ColorRect/Damage" to="." method="_on_Damage_pressed"]

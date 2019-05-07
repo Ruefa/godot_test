@@ -31,6 +31,7 @@ func createSkillTree():
 		var skillNode = Skill_Node.instance()
 		skillNode.type = skill["type"]
 		skillNode.value = float(skill["value"])
+		skillNode.get_node("Label").text = skillNode.type
 		skillNode.connect("pressed", self, "_on_skillNode_pressed", [skillNode])
 		add_child(skillNode)
 
