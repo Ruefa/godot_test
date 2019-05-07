@@ -22,6 +22,7 @@ func _process(delta):
 			$Menu.hide()
 		else:
 			get_tree().paused = true
+			$Menu.updateSkillLabel()
 			$Menu.show()
 
 
