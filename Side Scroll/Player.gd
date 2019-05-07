@@ -91,6 +91,7 @@ func playerShoot():
 	get_parent().add_child(bullet)
 	bullet.position = position
 	bullet.damage = damage
+	bullet.connect("kill", self, "onKill")
 	if PLAYER_DIR == LEFT:
 		bullet.velocity.x *= -1
 		
@@ -98,4 +99,8 @@ func playerShoot():
 func statChange():
 	$FireRateTimer.set_wait_time(BASE_ATT_SPEED * att_speed_mult + $Skills.att_speed_mult)
 	damage = BASE_DAMAGE * damage_mult
+	
+	
+func onKill(node):
+	print("kill")
 
