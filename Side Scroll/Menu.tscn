@@ -37,5 +37,19 @@ margin_bottom = 233.145
 custom_fonts/font = SubResource( 2 )
 text = "Damage"
 
+[node name="Skill Points Text Label" type="Label" parent="."]
+margin_left = 280.651
+margin_top = 20.0
+margin_right = 354.651
+margin_bottom = 34.0
+text = "Skill Points:"
+
+[node name="Skill_Points_Label" type="Label" parent="."]
+margin_left = 361.0
+margin_top = 20.0
+margin_right = 401.0
+margin_bottom = 34.0
+text = "0"
+
 [connection signal="pressed" from="ColorRect/AttSpeed" to="." method="_on_AttSpeed_pressed"]
 [connection signal="pressed" from="ColorRect/Damage" to="." method="_on_Damage_pressed"]
