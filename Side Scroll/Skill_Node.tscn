@@ -8,3 +8,9 @@ pause_mode = 2
 texture_normal = ExtResource( 1 )
 script = ExtResource( 2 )
 
+[node name="Label" type="Label" parent="."]
+margin_left = 11.0
+margin_top = 39.0
+margin_right = 51.0
+margin_bottom = 53.0
+
