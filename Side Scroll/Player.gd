@@ -102,5 +102,12 @@ func statChange():
 	
 	
 func onKill(node):
-	print("kill")
+	curExp += node.BASE_EXP
+	if curExp >= EXP_TO_LEVEL:
+		levelUp()
+		
+		
+func levelUp():
+	$Skills.skillPoints += 1
+	curExp -= EXP_TO_LEVEL
 
