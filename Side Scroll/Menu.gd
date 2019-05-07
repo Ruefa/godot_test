@@ -14,7 +14,7 @@ func _ready():
 	
 func setPlayer(Player):
 	player = Player
-	$Skill_Points_Label.text = str(player.get_node("Skills").skillPoints)
+	updateSkillLabel()
 
 
 func _on_Damage_pressed():
@@ -53,3 +53,6 @@ func _on_skillNode_pressed(event):
 	print("pressed")
 	player.get_node("Skills").allocateSkill(event.type, event.value)
 	player.statChange()
+	
+func updateSkillLabel():
+	$Skill_Points_Label.text = str(player.get_node("Skills").skillPoints)
