@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 const SPEED = 450
 
+signal kill(node)
+
 var damage
 var velocity = Vector2(SPEED, 0)
 
@@ -17,7 +19,8 @@ func _process(delta):
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if collision.get_collider() in enemyNodes:
-			collision.get_collider().hit(damage)
+			if collision.get_collider().hit(damage):
+				emit_signal("kill", (collision.get_collider()))
 			queue_free()
 			break
 		else:
