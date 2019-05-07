@@ -7,6 +7,7 @@ const RIGHT = 'right'
 const LEFT = 'left'
 const BASE_ATT_SPEED = .5
 const BASE_DAMAGE = 50
+const EXP_TO_LEVEL = 100
 
 var SPEED_X = 200
 var SCREEN_SIZE
@@ -14,6 +15,7 @@ var PLAYER_DIR = RIGHT
 var att_speed_mult = 1
 var damage_mult = 1
 var damage
+var curExp = 0
 
 # Declare member variables here. Examples:
 # var a = 2
