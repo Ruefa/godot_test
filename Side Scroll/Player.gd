@@ -24,9 +24,13 @@ var velocity
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# create vector object for player velocity
 	velocity = Vector2()
+	
+	# get current screen size
 	SCREEN_SIZE = get_viewport_rect().size
 	
+	# apply player stats
 	statChange()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,7 +40,8 @@ func _process(delta):
 		velocity.y += delta*consts.GRAVITY
 	else:
 		velocity.y = 0
-		
+	
+	# set players y velocity to 0 if player is moving up and hits something above them
 	if is_on_ceiling() and velocity.y < 0:
 		velocity.y = 0
 
@@ -51,17 +56,22 @@ func _process(delta):
 		PLAYER_DIR = LEFT
 		$AnimatedSprite.flip_h = true
 		$AnimatedSprite.play()
+	# stop if no buttons being pressed
 	else:
 		velocity.x = 0
 		$AnimatedSprite.stop()
 		$AnimatedSprite.set_frame(0)
 		
+	# check for player shooting input
 	if Input.is_action_pressed("ui_shoot") and $FireRateTimer.is_stopped():
 		playerShoot()
 		
+	# only allow the player to jump when they are on the floor
 	if Input.is_action_pressed("ui_up") and is_on_floor():
 		velocity.y = -400
 		
+	# check for collision with an enemy
+	# TODO: add player health
 	var enemyNodes = get_tree().get_nodes_in_group("Enemy")
 	if $VulnTimer.is_stopped():
 		for collider in $MonsterArea.get_overlapping_bodies():
@@ -69,10 +79,11 @@ func _process(delta):
 				print(collider.damage)
 				$VulnTimer.start()
 
-	
+	# set player to move
 	move_and_slide(velocity, Vector2(0,-1))
 	
 
+# spawn a bullet and set direction based on player direction
 func playerShoot():
 	$FireRateTimer.start()
 	
