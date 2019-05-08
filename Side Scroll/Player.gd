@@ -8,6 +8,7 @@ const LEFT = 'left'
 const BASE_ATT_SPEED = .5
 const BASE_DAMAGE = 50
 const EXP_TO_LEVEL = 100
+const BASE_HP = 100
 
 var SPEED_X = 200
 var SCREEN_SIZE
@@ -16,6 +17,7 @@ var att_speed_mult = 1
 var damage_mult = 1
 var damage
 var curExp = 0
+var curHP = BASE_HP
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -76,7 +78,7 @@ func _process(delta):
 	if $VulnTimer.is_stopped():
 		for collider in $MonsterArea.get_overlapping_bodies():
 			if collider in enemyNodes:
-				print(collider.damage)
+				setHP(curHP - collider.damage)
 				$VulnTimer.start()
 
 	# set player to move
@@ -99,6 +101,20 @@ func playerShoot():
 func statChange():
 	$FireRateTimer.set_wait_time(BASE_ATT_SPEED * att_speed_mult + $Skills.att_speed_mult)
 	damage = BASE_DAMAGE * damage_mult
+	
+	# HP
+	setHP(BASE_HP)
+	
+func setHP(hp):
+	if hp <= 0:
+		curHP = 0
+		# TODO handle death
+		print("You died")
+	else:
+		curHP = hp
+	
+	$HUD/HealthBar.max_value = BASE_HP
+	$HUD/HealthBar.value = curHP
 	
 	
 func onKill(node):
