@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://art/Player/standing.png" type="Texture" id=2]
@@ -16,6 +16,12 @@ animations = [ {
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 23.0743
 height = 19.2959
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0627451, 0.933333, 0.0352941, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.898039, 0.0666667, 0.0666667, 1 )
 
 [node name="Player" type="KinematicBody2D"]
 z_index = 1
@@ -38,6 +44,18 @@ shape = SubResource( 2 )
 current = true
 limit_top = 0
 smoothing_enabled = true
+
+[node name="HUD" type="CanvasLayer" parent="."]
+offset = Vector2( 20, 10 )
+transform = Transform2D( 1, 0, 0, 1, 20, 10 )
+
+[node name="HealthBar" type="ProgressBar" parent="HUD"]
+margin_right = 232.0
+margin_bottom = 23.0
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 4 )
+step = 1.0
+value = 100.0
 
 [node name="VulnTimer" type="Timer" parent="."]
 one_shot = true
