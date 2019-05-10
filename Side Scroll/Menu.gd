@@ -33,6 +33,8 @@ func createSkillTree():
 		skillNode.value = float(skill["value"])
 		skillNode.get_node("Label").text = skillNode.type
 		skillNode.connect("pressed", self, "_on_skillNode_pressed", [skillNode])
+		skillNode.margin_top = 50 + skill.y*(50 + skillNode.get_normal_texture().get_height())
+		skillNode.margin_left = 25 + skill.x*(25 + skillNode.get_normal_texture().get_width())
 		add_child(skillNode)
 
 
