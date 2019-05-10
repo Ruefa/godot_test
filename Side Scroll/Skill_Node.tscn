@@ -5,6 +5,8 @@
 
 [node name="Skill_Node" type="TextureButton"]
 pause_mode = 2
+anchor_right = 1.0
+margin_right = -1000.0
 texture_normal = ExtResource( 1 )
 script = ExtResource( 2 )
 
