@@ -31,6 +31,7 @@ func _ready():
 	# apply player stats
 	statChange()
 	setHP(BASE_HP)
+	setXP(0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -113,12 +114,18 @@ func setHP(hp):
 	$HUD/HealthBar.max_value = BASE_HP
 	$HUD/HealthBar.value = curHP
 	
-	
-func onKill(node):
-	curExp += node.BASE_EXP
+func setXP(xp):
+	curExp = xp
 	if curExp >= EXP_TO_LEVEL:
 		levelUp()
-		
+	
+	$HUD/ExpBar.max_value = EXP_TO_LEVEL
+	$HUD/ExpBar.value = curExp
+	
+	
+func onKill(node):
+	setXP(curExp + node.BASE_EXP)
+	
 		
 func levelUp():
 	$Skills.skillPoints += 1
