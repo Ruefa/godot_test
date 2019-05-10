@@ -20,3 +20,7 @@ func allocateSkill(type, value):
 		return true
 	else:
 		return false
+
+func getStat(type):
+	if type in stats:
+		return stats[type]
