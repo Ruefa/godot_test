@@ -1,13 +1,28 @@
-extends Node2D
+extends CanvasLayer
 
 var Skill_Node = load("res://Skill_Node.tscn")
 
 # reference to player object
 var player
 
+var size = Vector2(714, 401)
+
 func _ready():
+	# set x and y margins to display the menu in the center of the screen
+	$ColorRect.set_margin(MARGIN_LEFT, (get_viewport().size.x - size.x)/2)
+	$ColorRect.set_margin(MARGIN_RIGHT, $ColorRect.margin_left + size.x)
+	
+	$ColorRect.set_margin(MARGIN_TOP, (get_viewport().size.y - size.y)/2)
+	$ColorRect.set_margin(MARGIN_BOTTOM, $ColorRect.margin_top + size.y)
+	
 	hide()
 	createSkillTree()
+	
+func hide():
+	$ColorRect.hide()
+	
+func show():
+	$ColorRect.show()
 
 #func _process(delta):
 	#pass
