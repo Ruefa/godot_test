@@ -30,6 +30,7 @@ func _ready():
 	
 	# apply player stats
 	statChange()
+	setHP(BASE_HP)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -99,7 +100,7 @@ func statChange():
 	damage = BASE_DAMAGE * damage_mult
 	
 	# HP
-	setHP(BASE_HP)
+	#$HUD/HealthBar.max_value= BASE
 	
 func setHP(hp):
 	if hp <= 0:
