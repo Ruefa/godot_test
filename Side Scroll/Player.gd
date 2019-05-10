@@ -18,10 +18,6 @@ var damage_mult = 1
 var damage
 var curExp = 0
 var curHP = BASE_HP
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var velocity
 
 # Called when the node enters the scene tree for the first time.
