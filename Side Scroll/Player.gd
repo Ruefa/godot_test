@@ -118,6 +118,7 @@ func playerShoot():
 func statChange():
 	$FireRateTimer.set_wait_time(BASE_ATT_SPEED * att_speed_mult + $Skills.getStat(consts.ATT_SPEED))
 	damage = BASE_DAMAGE * (damage_mult + $Skills.getStat(consts.ATT_DAMAGE))
+	numProj = BASE_PROJ + $Skills.getStat(consts.PROJ)
 	
 	# HP
 	#$HUD/HealthBar.max_value= BASE
