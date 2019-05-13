@@ -19,6 +19,7 @@ var damage
 var curExp = 0
 var curHP = BASE_HP
 var velocity
+var isDead = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,8 +34,12 @@ func _ready():
 	setHP(BASE_HP)
 	setXP(0)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Think about moving input to one section so it can be easily toggled on and off
 func _process(delta):
+	# death button
+	if Input.is_action_pressed("ui_end") and curHP > 0:
+		setHP(0)
+	
 	# gravity
 	if !is_on_floor():
 		velocity.y += delta*consts.GRAVITY
@@ -46,12 +51,12 @@ func _process(delta):
 		velocity.y = 0
 
 	# left - right movement
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("ui_right") and not isDead:
 		velocity.x = SPEED_X
 		PLAYER_DIR = RIGHT
 		$AnimatedSprite.flip_h = false
 		$AnimatedSprite.play()
-	elif Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("ui_left") and not isDead:
 		velocity.x = -SPEED_X
 		PLAYER_DIR = LEFT
 		$AnimatedSprite.flip_h = true
@@ -63,11 +68,11 @@ func _process(delta):
 		$AnimatedSprite.set_frame(0)
 		
 	# check for player shooting input
-	if Input.is_action_pressed("ui_shoot") and $FireRateTimer.is_stopped():
+	if Input.is_action_pressed("ui_shoot") and $FireRateTimer.is_stopped() and not isDead:
 		playerShoot()
 		
 	# only allow the player to jump when they are on the floor
-	if Input.is_action_pressed("ui_up") and is_on_floor():
+	if Input.is_action_pressed("ui_up") and is_on_floor() and not isDead:
 		velocity.y = -400
 		
 	# check for collision with an enemy
@@ -78,6 +83,11 @@ func _process(delta):
 			if collider in enemyNodes:
 				setHP(curHP - collider.damage)
 				$VulnTimer.start()
+				
+	#respawn if dead
+	if Input.is_action_pressed("ui_accept") and isDead:
+		respawn()
+
 
 	# set player to move
 	move_and_slide(velocity, Vector2(0,-1))
@@ -106,8 +116,7 @@ func statChange():
 func setHP(hp):
 	if hp <= 0:
 		curHP = 0
-		# TODO handle death
-		print("You died")
+		die()
 	else:
 		curHP = hp
 	
@@ -131,3 +140,13 @@ func levelUp():
 	$Skills.skillPoints += 1
 	curExp -= EXP_TO_LEVEL
 
+func die():
+	isDead = true
+	$AnimatedSprite.rotation = PI/2
+	$HUD/PopupMessage.show()
+
+func respawn():
+		isDead = false
+		setHP(BASE_HP)
+		$AnimatedSprite.rotation = 0
+		$HUD/PopupMessage.hide()

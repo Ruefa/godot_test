@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://art/Player/standing.png" type="Texture" id=2]
@@ -25,6 +25,13 @@ bg_color = Color( 0.898039, 0.0666667, 0.0666667, 1 )
 
 [sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.854902, 0.862745, 0.0392157, 1 )
+
+[sub_resource type="DynamicFontData" id=6]
+font_path = "res://font/ARIALNB.TTF"
+
+[sub_resource type="DynamicFont" id=7]
+size = 36
+font_data = SubResource( 6 )
 
 [node name="Player" type="KinematicBody2D"]
 z_index = 1
@@ -66,6 +73,17 @@ margin_right = 469.0
 margin_bottom = 23.0
 custom_styles/fg = SubResource( 5 )
 step = 1.0
+
+[node name="PopupMessage" type="Label" parent="HUD"]
+visible = false
+margin_left = 387.707
+margin_top = 122.774
+margin_right = 711.707
+margin_bottom = 209.774
+custom_fonts/font = SubResource( 7 )
+text = "You Died
+Press Enter to respawn"
+align = 1
 
 [node name="VulnTimer" type="Timer" parent="."]
 one_shot = true
