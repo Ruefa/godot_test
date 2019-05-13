@@ -9,6 +9,7 @@ const BASE_ATT_SPEED = .5
 const BASE_DAMAGE = 50
 const EXP_TO_LEVEL = 100
 const BASE_HP = 100
+const BASE_PROJ = 1
 
 var SPEED_X = 200
 var SCREEN_SIZE
@@ -18,6 +19,7 @@ var damage_mult = 1
 var damage
 var curExp = 0
 var curHP = BASE_HP
+var numProj = BASE_PROJ
 var velocity
 var isDead = false
 
@@ -97,13 +99,20 @@ func _process(delta):
 func playerShoot():
 	$FireRateTimer.start()
 	
-	var bullet = Bullet.instance()
-	get_parent().add_child(bullet)
-	bullet.position = position
-	bullet.damage = damage
-	bullet.connect("kill", self, "onKill")
-	if PLAYER_DIR == LEFT:
-		bullet.velocity.x *= -1
+	for i in range(numProj):
+		var bullet = Bullet.instance()
+		get_parent().add_child(bullet)
+		bullet.position = position
+		bullet.damage = damage
+		# yAng = angle of bullet away from player
+		var yAng = 1
+		if i%2!=0:
+			yAng = -1
+		# needs work on angle
+		bullet.velocity = Vector2(bullet.SPEED, yAng*bullet.SPEED*(float(i)/numProj))
+		bullet.connect("kill", self, "onKill")
+		if PLAYER_DIR == LEFT:
+			bullet.velocity.x *= -1
 		
 # called when stats change to recalculate player ability
 func statChange():
