@@ -6,7 +6,8 @@ var skillPoints = 5
 
 var stats = {
 	consts.ATT_SPEED : 0,
-	consts.ATT_DAMAGE : 0
+	consts.ATT_DAMAGE : 0,
+	consts.PROJ : 0
 }
 
 #func _ready():
