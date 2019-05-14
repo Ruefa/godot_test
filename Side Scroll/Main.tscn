@@ -37,4 +37,8 @@ autostart = true
 
 [node name="Menu" parent="." instance=ExtResource( 4 )]
 
+[node name="InputDelay" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [connection signal="timeout" from="MobSpawnTimer" to="." method="_on_MobSpawnTimer_timeout"]
