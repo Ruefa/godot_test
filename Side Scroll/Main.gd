@@ -16,7 +16,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# pause menu
-	if Input.is_action_pressed("ui_menu"):
+	if Input.is_action_pressed("ui_menu") and $InputDelay.is_stopped():
 		if get_tree().paused:
 			get_tree().paused = false
 			$Menu.hide()
@@ -24,6 +24,7 @@ func _process(delta):
 			get_tree().paused = true
 			$Menu.updateSkillLabel()
 			$Menu.show()
+		$InputDelay.start()
 
 
 func _on_MobSpawnTimer_timeout():
