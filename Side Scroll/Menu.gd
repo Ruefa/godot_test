@@ -52,7 +52,7 @@ func createSkillTree():
 		skillNode.connect("pressed", self, "_on_skillNode_pressed", [skillNode])
 		skillNode.margin_top = 50 + skill.y*(50 + skillNode.get_normal_texture().get_height())
 		skillNode.margin_left = 25 + skill.x*(25 + skillNode.get_normal_texture().get_width())
-		$ColorRect.add_child(skillNode)
+		$ColorRect/Skills.add_child(skillNode)
 
 
 func _on_skillNode_pressed(event):
@@ -65,4 +65,4 @@ func _on_skillNode_pressed(event):
 		print("no SP")
 	
 func updateSkillLabel():
-	$ColorRect/Skill_Points_Label.text = str(player.get_node("Skills").skillPoints)
+	$ColorRect/Skills/Skill_Points_Label.text = str(player.get_node("Skills").skillPoints)
