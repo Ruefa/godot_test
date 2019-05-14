@@ -17,6 +17,16 @@ func _ready():
 	$ColorRect.set_margin(MARGIN_BOTTOM, $ColorRect.margin_top + size.y)
 	
 	tabList = [$ColorRect/Skills, $ColorRect/Character]
+	
+	# iterate through tabs and set their size and color equal to the main ColorRect
+	for tab in tabList:
+		tab.color = $ColorRect.color
+		tab.get_rect().size = $ColorRect.get_rect().size
+		tab.hide()
+		
+	# show default tab
+	$ColorRect/Skills.show()
+
 	hide()
 	createSkillTree()
 	
@@ -66,3 +76,16 @@ func _on_skillNode_pressed(event):
 	
 func updateSkillLabel():
 	$ColorRect/Skills/Skill_Points_Label.text = str(player.get_node("Skills").skillPoints)
+
+func hideTabs():
+	for tab in tabList:
+		tab.hide()
+
+func _on_Skills_Tab_pressed():
+	hideTabs()
+	$ColorRect/Skills.show()
+
+
+func _on_Character_Tab_pressed():
+	hideTabs()
+	$ColorRect/Character.show()
