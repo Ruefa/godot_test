@@ -46,12 +46,7 @@ func setPlayer(Player):
 
 # generate skill tree from JSON file
 func createSkillTree():
-	var treeFile = File.new()
-	treeFile.open("res://JSON/skill_tree.json", treeFile.READ)
-	
-	# parse json into text map
-	var treeDict = JSON.parse(treeFile.get_as_text()).result
-	treeFile.close()
+	var treeDict = consts.loadJSON()
 	
 	# iterate through each skill and create a button for the player to click
 	for skill in treeDict:
