@@ -1,3 +1,5 @@
+extends Node
+
 const GRAVITY = 500
 
 # stat constants

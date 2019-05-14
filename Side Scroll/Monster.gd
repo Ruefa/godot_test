@@ -5,7 +5,6 @@ const MAX_HP = 100
 const BASE_DAMAGE = 50
 const BASE_EXP = 50
 
-var consts = load("res://Constants.gd")
 var velocity = Vector2(0,0)
 var curDirection = 1
 var health

@@ -1,7 +1,5 @@
 extends Node
 
-var consts = load("res://Constants.gd")
-
 var skillPoints = 5
 
 var stats = {

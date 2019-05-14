@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
 var Bullet = load("res://Bullet.tscn")
-var consts = load("res://Constants.gd")
 
 const RIGHT = 'right'
 const LEFT = 'left'
