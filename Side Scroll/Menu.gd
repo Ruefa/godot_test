@@ -6,6 +6,7 @@ var Skill_Node = load("res://Skill_Node.tscn")
 var player
 
 var size = Vector2(714, 401)
+var tabList
 
 func _ready():
 	# set x and y margins to display the menu in the center of the screen
@@ -15,6 +16,7 @@ func _ready():
 	$ColorRect.set_margin(MARGIN_TOP, (get_viewport().size.y - size.y)/2)
 	$ColorRect.set_margin(MARGIN_BOTTOM, $ColorRect.margin_top + size.y)
 	
+	tabList = [$ColorRect/Skills, $ColorRect/Character]
 	hide()
 	createSkillTree()
 	
