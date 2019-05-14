@@ -1,28 +1,55 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
 
 [node name="Menu" type="CanvasLayer"]
 pause_mode = 2
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-margin_right = 718.0
+margin_left = 64.0
+margin_right = 782.0
 margin_bottom = 401.0
 color = Color( 0.305882, 0.168627, 0.0470588, 1 )
 
-[node name="Skill Points Text Label" type="Label" parent="ColorRect"]
+[node name="Tabs" type="ColorRect" parent="ColorRect"]
+margin_left = -64.0
+margin_bottom = 401.0
+color = Color( 0.227451, 0.219608, 0.219608, 1 )
+
+[node name="Skills_Tab" type="TextureButton" parent="ColorRect/Tabs"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 2 )
+
+[node name="Character_Tab" type="TextureButton" parent="ColorRect/Tabs"]
+margin_top = 96.0
+margin_right = 64.0
+margin_bottom = 160.0
+texture_normal = ExtResource( 2 )
+
+[node name="Skills" type="ColorRect" parent="ColorRect"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Skill Points Text Label" type="Label" parent="ColorRect/Skills"]
 margin_left = 281.733
 margin_top = 20.3882
 margin_right = 355.733
 margin_bottom = 34.3882
 text = "Skill Points:"
 
-[node name="Skill_Points_Label" type="Label" parent="ColorRect"]
+[node name="Skill_Points_Label" type="Label" parent="ColorRect/Skills"]
 margin_left = 362.082
 margin_top = 20.3882
 margin_right = 402.082
 margin_bottom = 34.3882
 text = "0"
 
+[node name="Character" type="ColorRect" parent="ColorRect"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[connection signal="pressed" from="ColorRect/Tabs/Skills_Tab" to="." method="_on_Skills_Tab_pressed"]
+[connection signal="pressed" from="ColorRect/Tabs/Character_Tab" to="." method="_on_Character_Tab_pressed"]
