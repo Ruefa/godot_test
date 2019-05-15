@@ -1,0 +1,12 @@
+[
+	{
+		"sprite" : {
+			"path" : "res://art/equipment/shirt.png",
+			"scale" : {
+				"x" : 2,
+				"y" : 2
+			}
+		},
+		"type" : "body"
+	}
+]
