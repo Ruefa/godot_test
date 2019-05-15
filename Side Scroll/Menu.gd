@@ -26,6 +26,8 @@ func _ready():
 		
 	# show default tab
 	$ColorRect/Skills.show()
+	
+	setupCharacter()
 
 	hide()
 	createSkillTree()
@@ -58,7 +60,14 @@ func createSkillTree():
 		skillNode.margin_top = 50 + skill.y*(50 + skillNode.get_normal_texture().get_height())
 		skillNode.margin_left = 25 + skill.x*(25 + skillNode.get_normal_texture().get_width())
 		$ColorRect/Skills.add_child(skillNode)
-
+		
+		
+func setupCharacter():
+	# testing
+	var equipment = consts.loadJSON("res://JSON/equipment.json")
+	for equip in equipment:
+		$ColorRect/Character/Equipment.set_texture(load(equip.sprite.path))
+		$ColorRect/Character/Equipment.set_scale(Vector2(equip.sprite.scale.x, equip.sprite.scale.y))
 
 func _on_skillNode_pressed(event):
 	print("pressed")
