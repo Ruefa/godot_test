@@ -34,9 +34,11 @@ func _ready():
 	
 func hide():
 	$ColorRect.hide()
-	
+
+
 func show():
 	$ColorRect.show()
+
 
 #func _process(delta):
 	#pass
@@ -44,7 +46,7 @@ func show():
 func setPlayer(Player):
 	player = Player
 	updateSkillLabel()
-		
+
 
 # generate skill tree from JSON file
 func createSkillTree():
@@ -60,14 +62,15 @@ func createSkillTree():
 		skillNode.margin_top = 50 + skill.y*(50 + skillNode.get_normal_texture().get_height())
 		skillNode.margin_left = 25 + skill.x*(25 + skillNode.get_normal_texture().get_width())
 		$ColorRect/Skills.add_child(skillNode)
-		
-		
+
+
 func setupCharacter():
 	# testing
 	var equipment = consts.loadJSON("res://JSON/equipment.json")
 	for equip in equipment:
 		$ColorRect/Character/Equipment.set_texture(load(equip.sprite.path))
 		$ColorRect/Character/Equipment.set_scale(Vector2(equip.sprite.scale.x, equip.sprite.scale.y))
+
 
 func _on_skillNode_pressed(event):
 	print("pressed")
@@ -77,13 +80,16 @@ func _on_skillNode_pressed(event):
 	else:
 		# show error for not enough SP
 		print("no SP")
-	
+
+
 func updateSkillLabel():
 	$ColorRect/Skills/Skill_Points_Label.text = str(player.get_node("Skills").skillPoints)
+
 
 func hideTabs():
 	for tab in tabList:
 		tab.hide()
+
 
 func _on_Skills_Tab_pressed():
 	hideTabs()
