@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 consts="*res://Constants.gd"
+Equipment="*res://Equipment.gd"
 
 [display]
 
