@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Equipment.tscn" type="PackedScene" id=3]
 
 [node name="Menu" type="CanvasLayer"]
 pause_mode = 2
@@ -30,6 +31,7 @@ margin_bottom = 160.0
 texture_normal = ExtResource( 2 )
 
 [node name="Skills" type="ColorRect" parent="ColorRect"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -50,6 +52,8 @@ text = "0"
 [node name="Character" type="ColorRect" parent="ColorRect"]
 margin_right = 40.0
 margin_bottom = 40.0
+
+[node name="Equipment" parent="ColorRect/Character" instance=ExtResource( 3 )]
 
 [connection signal="pressed" from="ColorRect/Tabs/Skills_Tab" to="." method="_on_Skills_Tab_pressed"]
 [connection signal="pressed" from="ColorRect/Tabs/Character_Tab" to="." method="_on_Character_Tab_pressed"]
